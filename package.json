@@ -1,10 +1,12 @@
 {
   "name": "benders_todo_list_api",
+  "private": true,
   "version": "1.0.0",
+  "type": "module",
   "description": "Welcome to the \"Bender's ToDo List - API\" repository! This project is the backend API for the \"Bender's ToDo List\" application, a task management web app themed around Bender, the charismatic robot from the \"Futurama\" series.",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
