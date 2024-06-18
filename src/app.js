@@ -19,8 +19,10 @@ import cors from "cors";
 import morgan from "morgan";
 
 import userRoutes from "./routes/user.routes.js";
+import { connectDB } from "./config/db.js";
 
 const app = express();
+connectDB();
 
 // Middleware setup
 app.use(cors()); // Enable Cross-Origin Resource Sharing

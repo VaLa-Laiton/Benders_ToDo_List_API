@@ -1,7 +1,9 @@
 /**
+ * validateEmail.js
+ * 
  * Validates an email address based on specified criteria.
  *
- * The function checks if the email meets the following criteria:
+ * This file is a function checks if the email meets the following criteria:
  * 1. The email has a valid format.
  * 2. The length of the email is not excessive (up to 254 characters).
  * 3. The email contains only valid characters.
@@ -32,7 +34,7 @@
  * const result = validateEmail('user@prohibited.com');
  * console.log(result); // { valid: false, message: 'Email domain is not allowed.' }
  */
-const validateEmail = (email) => {
+export const validateEmail = (email) => {
     const maxLength = 254;
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const prohibitedDomains = new Set([

@@ -1,7 +1,9 @@
 /**
+ * validatePassword.js
+ *
  * Validates a password based on specified criteria.
  *
- * The function checks if the password meets the following criteria:
+ * This file is a function checks if the password meets the following criteria:
  * 1. The length of the password is between 8 and 100 characters.
  * 2. The password contains at least one uppercase letter, one lowercase letter,
  *    one number, and one special character from the set: !@#$%^&*()-_+=[]{}|;:,.<>?.
@@ -31,18 +33,26 @@
  * const result = validatePassword('WeakPassword');
  * console.log(result); // { valid: false, message: 'Password is too weak.' }
  */
-const validatePassword = (password) => {
-    const minLength = 8;
-    const maxLength = 100;
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()-_+=\[\]{}|;:,.<>?]).{8,100}$/;
+export const validatePassword = (password) => {
+  const minLength = 8;
+  const maxLength = 100;
+  const regex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+[{\]}\\|;:,<.>/?]).{8,100}$/;
 
-    if (password.length < minLength || password.length > maxLength) {
-        return { valid: false, message: `Password must be between ${minLength} and ${maxLength} characters.` };
-    }
+  if (password.length < minLength || password.length > maxLength) {
+    return {
+      valid: false,
+      message: `Password must be between ${minLength} and ${maxLength} characters.`,
+    };
+  }
 
-    if (!regex.test(password)) {
-        return { valid: false, message: 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.' };
-    }
+  if (!regex.test(password)) {
+    return {
+      valid: false,
+      message:
+        "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
+    };
+  }
 
-    return { valid: true, message: 'Password is valid.' };
+  return { valid: true, message: "Password is valid." };
 };
