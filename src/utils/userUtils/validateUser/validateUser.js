@@ -31,7 +31,7 @@ import { validatePassword } from "./validatePassword.js";
  * console.log(validationResult);
  */
 export const validateUser = (body) => {
-  try {
+  try { 
     // Basic structure and type validation
     if (
       typeof body !== "object" ||

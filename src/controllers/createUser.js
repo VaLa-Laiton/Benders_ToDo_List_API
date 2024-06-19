@@ -1,5 +1,5 @@
 import { validateUser } from "../utils/userUtils/validateUser/validateUser.js";
-import { User } from "../models/user.js";
+import { saveUser } from "../utils/userUtils/saveUser/saveUser.js";
 
 /**
  * createUser.js
@@ -36,15 +36,20 @@ export const createUser = async (req, res) => {
       });
     }
 
-    const newUser = new User({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-    });
-    await newUser.save();
-
+    const registrationResult = await saveUser(req.body);
+    if (registrationResult.isError === true) {
+      return res.status(500).json({
+        message: registrationResult.message,
+      });
+    }
+    if (registrationResult.valid === false) {
+      return res.status(400).json({
+        message: registrationResult.message,
+      });
+    }
+    
     return res.status(200).json({
-      message: `${userValidResult.message} And user has been successfully created.`,
+      message: `${userValidResult.message} And... ${registrationResult.message}`,
     });
   } catch (error) {
     console.log(error);

@@ -29,3 +29,4 @@ export const PORT = process.env.PORT;
 export const MONGO_HOST = process.env.MONGO_HOST;
 export const MONGO_PORT = process.env.MONGO_PORT;
 export const MONGO_DB = process.env.MONGO_DB;
+export const BCRYPT_SALT_ROUNDS = process.env.BCRYPT_SALT_ROUNDS;
